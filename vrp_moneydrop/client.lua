@@ -94,7 +94,13 @@ function PopulatePedIndex()
     local handle, ped = FindFirstPed()
     local finished = false -- FindNextPed will turn the first variable to false when it fails to find another ped in the index
     repeat
-        if not IsEntityDead(ped) then
+		local player = false
+        for i = 0, 32 do
+            if (ped == GetPlayerPed(i)) then
+                player = true
+            end
+        end
+        if not IsEntityDead(ped) and not player then
                 pedindex[ped] = {}
         end
         finished, ped = FindNextPed(handle) -- first param returns true while entities are found

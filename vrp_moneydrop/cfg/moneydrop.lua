@@ -1,10 +1,10 @@
 cfg = {}
 
-cfg.autoloot = true -- Area loot
+cfg.autoloot = false -- Area loot
 cfg.autoloot_key = 38 -- E
 
 cfg.highlight = { -- Highlight money drop (rgba color)
-  active = true,
+  active = false,
   r = 255,
   g = 0,
   b = 0,
