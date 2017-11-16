@@ -3,10 +3,10 @@ local Proxy = module("vrp", "lib/Proxy")
 
 vRPmd = {}
 vRP = Proxy.getInterface("vRP")
-vRPclient = Tunnel.getInterface("vRP","vrp_moneydrop")
+vRPclient = Tunnel.getInterface("vRP")
 Tunnel.bindInterface("vrp_moneydrop",vRPmd)
 
 function vRPmd.updateUserMoney(worth)
-	local user_id = vRP.getUserId({source})
-	vRP.giveMoney({user_id,worth})
+	local user_id = vRP.getUserId(source)
+	vRP.giveMoney(user_id,worth)
 end

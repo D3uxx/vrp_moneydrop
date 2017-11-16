@@ -1,4 +1,8 @@
-MDserver = Tunnel.getInterface("vrp_moneydrop","vrp_moneydrop")
+local Tunnel = module("vrp", "lib/Tunnel")
+local Proxy = module("vrp", "lib/Proxy")
+local cfg = module("vrp_moneydrop", "cfg/moneydrop")
+
+MDserver = Tunnel.getInterface("vrp_moneydrop")
 
 pedindex = {}
 objval = {}
@@ -42,7 +46,7 @@ Citizen.CreateThread(function()
             if DoesEntityExist(k) then
                 dist = DistanceBetweenCoords(PlayerPedId(-1), k)
                 if (dist.x < 0.4) and (dist.y < 0.4) and (dist.z < 1) then
-                    MDserver.updateUserMoney({v.worth})
+                    MDserver.updateUserMoney(v.worth)
                     DeleteObject(k)
 					PlaySoundFrontend(-1, "PICK_UP", "HUD_FRONTEND_DEFAULT_SOUNDSET")
                     objval[k] = nil

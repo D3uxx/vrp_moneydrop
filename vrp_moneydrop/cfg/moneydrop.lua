@@ -73,3 +73,5 @@ cfg.jackpot = { -- Max drop uses prop from dropF
   min = 1, -- min amount dropped
   max = 2 -- max amount dropped
 }
+
+return cfg
